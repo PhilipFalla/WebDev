@@ -2,12 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Development</title>
+    <title>My CV</title>
+    <style>
+        html { scroll-behavior: smooth; }
+    </style>
 </head>
 <body>
-    <h1>Bienvenidos a mi pagina web</h1>
-    <h2>Hola Mundo!!!</h2>
-    <p>Aprendí la diferencia entre el DOM y el documento HTML. Lo había aprendido hace tiempo pero ayudó a refrescar la memoria.</p>
+
+    <header>
+        <h1>John Doe</h1>
+        <p>Web Developer</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact Me</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Brief introduction about yourself.</p>
+        </section>
+
+        <section id="experience">
+            <h2>Experience</h2>
+            <article>
+                <h3>Web Developer at XYZ</h3>
+                <p>Responsibilities and achievements.</p>
+            </article>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <h2>Contact Me</h2>
+        <a href="mailto:philipfallag@gmail.com" target="_blank">
+            <img src="images/gmail-icon.png" alt="Icon to email me" width="30">
+        </a>
+    </footer>
+
 </body>
 </html>
