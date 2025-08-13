@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My CV</title>
+
+    <title>CV - Philip Falla</title>
+
     <style>
         html { scroll-behavior: smooth; }
         .social-icon {
@@ -11,16 +13,29 @@
             object-fit: contain;
             margin-right: 10px;
         }
+        /* So pdf displays bullets properly */
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
     </style>
+
+    <!-- Compatibilidad con ambos casos de uso, favicon.ico o icon.png -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/icon.png" type="image/png">
+
 </head>
+
 <body>
 
     <header>
         <h1>Philip Falla</h1>
-        <p>Student</p>
+        <h3>Student</h3>
     </header>
 
     <nav>
+        <p>Links:</p>
         <ul>
             <li><a href="#about">About Me</a></li>
             <li><a href="#experience">Experience</a></li>
@@ -39,40 +54,74 @@
             <h2>Experience</h2>
             <article>
                 <ol>
-                    <li>Programming languages</li>
+                    <li>Programming languages
                         <ul>
                             <li>Python</li>
                         </ul>
-                    <li>Tecnologies/Tools used</li>
+                    </li>
+                    <li>Technologies/Tools used
                         <ul>
                             <li>Stagehand</li>
                             <li>Firebase</li>
                             <li>Arduino Uno & esp32</li>
                         </ul>
-                    <li>Soft skills</li>
+                    </li>
+                    <li>Soft skills
                         <ul>
                             <li>Problem-solving</li>
                             <li>Leadership</li>
                             <li>Time/Deadline Management</li>
                             <li>Independence</li>
                         </ul>
-                </ol>
+                    </li>
+                  </ol>                  
             </article>
         </section>
     </main>
 
     <footer id="contact">
         <h2>Contact Me</h2>
-        <a href="mailto:john.doe@gmail.com" target="_blank">
-            <img src="images/gmail-icon.png" alt="Link to email me" class="social-icon">
+        <a href="mailto:john.doe@gmail.com" target="_blank" rel="noopener noreferrer">
+            <img src="images/gmail-icon.png" alt="Email me" class="social-icon">
         </a>
-        <a href="https://github.com/philipfalla" target="_blank">
-            <img src="images/github-icon.png" alt="Link to visit my Github profile" class="social-icon">
+        <a href="https://github.com/philipfalla" target="_blank" rel="noopener noreferrer">
+            <img src="images/github-icon.png" alt="My GitHub profile" class="social-icon">
         </a>
-        <a href="https://www.linkedin.com/in/philip-falla-161335269/" target="_blank">
-            <img src="images/linkedin-icon.png" alt="Link to visit my Linkedin profile" class="social-icon">
+        <a href="https://www.linkedin.com/in/philip-falla-161335269/" target="_blank" rel="noopener noreferrer">
+            <img src="images/linkedin-icon.png" alt="My LinkedIn profile" class="social-icon">
         </a>        
+    
+        <p>© 2025 Philip Falla</p>
+        <button id="download">Download as PDF</button>
     </footer>
+
+    <!-- Load html2canvas, jsPDF uses it -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <!-- Load jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <script>
+        document.getElementById("download").addEventListener("click", () => {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF({
+                orientation: "portrait",
+                unit: "pt", // points
+                format: "a4"
+            });
+        
+            doc.html(document.body, {
+                callback: function (pdf) {
+                    pdf.save("My-CV.pdf");
+                },
+                x: 10,
+                y: 10,
+                html2canvas: {
+                    scale: 0.6 // smaller = more fits on the page
+                }
+            });
+        });
+    </script>        
 
 </body>
 </html>
