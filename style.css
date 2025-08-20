@@ -60,6 +60,21 @@ li {
     margin-bottom: 4px;
 }
 
+/* Separaciones para mejor visibilidad */
+header {
+    text-align: center;
+    border-bottom: 2px solid #003366;
+    padding-bottom: 10px;
+}
+footer {
+    border-top: 1px solid #ccc;
+    margin-top: 20px;
+    padding-top: 10px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #555;
+}
+
 .social-icon {
     width: 50px;
     height: 50px;
