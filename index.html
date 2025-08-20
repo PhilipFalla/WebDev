@@ -18,6 +18,22 @@
             list-style-type: disc;
             padding-left: 20px;
         }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            table-layout: fixed; /* Fix column widths */
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            word-wrap: break-word; /* Allows text to wrap instead of stretching */
+        }
+
+        /* Optional: force equal column widths (3 columns = 33% each) */
+        th, td {
+            width: 33%;
+        }
 
     </style>
 
@@ -80,23 +96,31 @@
                   </ol>                  
             </article>
         </section>
+
+        <!-- Education table -->
         <section id="education">
+            <!-- Title -->
             <h2>Education</h2>
-            <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+            <table>
+                <!-- Brief description as subtitle/caption -->
                 <caption style="caption-side: top; font-style: italic; padding-bottom: 8px;">
-                    Overview of my academic background and qualifications obtained
+                    Overview of my academic background
                 </caption>
+
+                <!-- Setting columns or table head -->
                 <thead>
                     <tr>
-                        <th>Year</th>
-                        <th>Institution</th>
-                        <th>Title Obtained</th>
+                        <th scope="col">Year</th>
+                        <th scope="col">Institution</th>
+                        <th scope="col">Title Obtained</th>
                     </tr>
                 </thead>
+
+                <!-- Filling out the table body -->
                 <tbody>
                     <tr>
                         <td>2024-2027</td>
-                        <td>Universidad Fransisco Marroquin</td>
+                        <td>Universidad Francisco Marroquín</td>
                         <td>Bachelor’s Degree in Computer Science Engineering</td>
                     </tr>
                     <tr>
@@ -106,23 +130,28 @@
                     </tr>
                 </tbody>
             </table>
-        </section>
-        
+        </section>          
 
         <!-- Experience table -->
         <section id="experience">
+            <!-- Title -->
             <h2>Experience</h2>
-            <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+            <table>
+                <!-- Brief description as subtitle/caption -->
                 <caption style="caption-side: top; font-style: italic; padding-bottom: 8px;">
-                    Overview of my past experiences
+                    Overview of my experience
                 </caption>
+
+                <!-- Setting table head/columns -->
                 <thead>
                     <tr>
-                        <th>Year</th>
-                        <th>Institution</th>
-                        <th>Role</th>
+                        <th scope="col">Year</th>
+                        <th scope="col">Institution</th>
+                        <th scope="col">Role</th>
                     </tr>
                 </thead>
+
+                <!-- Filling table body with past experience -->
                 <tbody>
                     <tr>
                         <td>2025-Present</td>
