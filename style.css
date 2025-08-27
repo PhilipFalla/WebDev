@@ -1,40 +1,41 @@
 html { scroll-behavior: smooth; }
 
-/* Texto en general */
+/* General text */
 body {
     font-family: 'Arial', sans-serif;
     color: #222;
     line-height: 1.5;
     margin: 0;
 }
-h1 { font-size: 2em; color: #003366; }
+
+h1 { font-size: 2em; color: #003366; text-align: center; }
 h2 { font-size: 1.4em; margin-top: 1.2em; }
 h3 { font-weight: normal; color: #555; }
 
-/* tablas */
+/* Tables */
 table {
     border-collapse: collapse;
     width: 100%;
     table-layout: fixed;
 }
-/* Cabezeras y datos en tablas */
+
 th, td {
     border: 1px solid #ccc;
     padding: 8px;
     width: 33%;
     word-wrap: break-word;
 }
-/* Cada fila */
+
 thead {
     background-color: #f0f4f8;
     color: #003366;
 }
-/* Ni idea */
+
 tbody tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
-/* Cambio de color y texto a los links */
+/* Links */
 a {
     color: #0066cc;
     text-decoration: none;
@@ -44,30 +45,99 @@ a:hover {
     color: #004080;
 }
 
-/* Listas ordenadas y bullets */
+/* Lists */
 ol {
     margin: 0.5em 0 0.5em 1.5em;
 }
 ul {
     margin: 0.5em 0 0.5em 1.5em;
-    
-    /* So pdf displays bullets properly */
     list-style-type: disc;
     padding-left: 20px;
 }
-
-/* Elementos de lista */
 li {
     margin-bottom: 4px;
 }
 
-/* Separaciones para mejor visibilidad */
-header {
-    text-align: center;
-    border-bottom: 2px solid #003366;
-    padding-bottom: 10px;
-    padding-top: 50px;
+/* Navbar Flexbox */
+nav.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f0f0f0;
+    z-index: 1000;
+    padding: 10px 20px;
 }
+nav ul {
+    display: flex;
+    justify-content: space-around; /* evenly spaced */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 8px 12px;
+}
+nav a:hover {
+    color: #0077cc;
+}
+
+/* Add margin to main so fixed nav doesn't cover content */
+main {
+    margin-top: 70px;
+    padding: 20px;
+    display: grid;
+    gap: 40px;
+}
+
+/* Top 2-column section: profile + about */
+.profile-about {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* profile pic smaller than text */
+    gap: 20px;
+    align-items: start;
+}
+
+/* Profile picture */
+.profile-pic {
+    display: flex;
+    justify-content: center; /* horizontal centering */
+    align-items: center;     /* vertical centering */
+    width: 80%;             /* take full grid cell width */
+    height: 80%;            /* take full grid cell height if you want a square */
+}
+
+.profile-pic img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 10%;
+    display: block;
+}
+
+/* Middle 3-column section: skills cards */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* three equal cards */
+    gap: 20px;
+}
+
+.skill-card {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+/* header margin */
+header.header-grid {
+    margin-top: 70px; /* same height as the nav bar */
+    padding: 20px;
+}
+
+/* Footer */
 footer {
     border-top: 1px solid #ccc;
     margin-top: 20px;
@@ -84,45 +154,7 @@ footer {
     margin-right: 10px;
 }
 
-.profile-pic img {
-    width: 150px;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    border-radius: 8px;
-}
-
-/* NAVBAR FLEX */
-nav.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #f0f0f0;
-    z-index: 1000;
-    padding: 10px 20px;
-}
-
-nav ul {
-    display: flex;
-    justify-content: space-around; /* evenly spaced across screen */
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-nav a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    padding: 8px 12px;
-}
-
-nav a:hover {
-    color: #0077cc;
-}
-
-/* Add margin to main so fixed nav doesn't cover content */
-main {
-    margin-top: 70px; /* adjust based on nav height */
+/* Tables spacing */
+#education, #experience {
+    padding: 20px 0;
 }
