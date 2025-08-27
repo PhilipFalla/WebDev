@@ -165,11 +165,16 @@ footer {
     padding: 1.25rem 0;
 }
 
-@media (min-width: 1025px) {
+/* MEDIA QUERIES */
+
+/* iPad Pro ~1024px */
+@media (max-width: 1024px) {
     .profile-about {
-        grid-template-columns: 1fr 2fr;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
     }
     .skills-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
     }
 }
