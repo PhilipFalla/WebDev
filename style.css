@@ -178,3 +178,22 @@ footer {
         gap: 1rem;
     }
 }
+
+/* iPhone 14 Pro Max ~430px */
+@media (max-width: 430px) {
+    nav ul {
+        flex-direction: column;
+        gap: 0.625rem;
+        align-items: center;
+    }
+    .profile-about {
+        grid-template-columns: 1fr; /* stack profile + about */
+    }
+    .skills-grid {
+        grid-template-columns: 1fr; /* stack skills cards */
+    }
+    main {
+        padding: 0.625rem;
+        gap: 1.25rem;
+    }
+}
