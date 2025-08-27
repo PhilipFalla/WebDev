@@ -5,6 +5,7 @@ body {
     font-family: 'Arial', sans-serif;
     color: #222;
     line-height: 1.5;
+    margin: 0;
 }
 h1 { font-size: 2em; color: #003366; }
 h2 { font-size: 1.4em; margin-top: 1.2em; }
@@ -65,6 +66,7 @@ header {
     text-align: center;
     border-bottom: 2px solid #003366;
     padding-bottom: 10px;
+    padding-top: 50px;
 }
 footer {
     border-top: 1px solid #ccc;
@@ -88,4 +90,39 @@ footer {
     display: block;
     margin: 0 auto;
     border-radius: 8px;
+}
+
+/* NAVBAR FLEX */
+nav.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f0f0f0;
+    z-index: 1000;
+    padding: 10px 20px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-around; /* evenly spaced across screen */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 8px 12px;
+}
+
+nav a:hover {
+    color: #0077cc;
+}
+
+/* Add margin to main so fixed nav doesn't cover content */
+main {
+    margin-top: 70px; /* adjust based on nav height */
 }
