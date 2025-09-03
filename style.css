@@ -3,17 +3,37 @@ html {
     font-size: 16px; /* base for rem units */
 }
 
+[data-bs-theme="light"] {
+    --text-color: #222;
+    --bg-color: #fff;
+  }
+  
+[data-bs-theme="dark"] {
+    --text-color: #f5f5f5;
+    --bg-color: #121212;
+  }
+  
+
 /* General text */
 body {
     font-family: 'Arial', sans-serif;
-    color: #222;
+    color: var(--text-color);
+    background-color: var(--bg-color);
     line-height: 1.5;
     margin: 0;
-}
+    transition: background-color 0.3s, color 0.3s;
+  }
 
-h1 { font-size: 2rem; color: #003366; text-align: center; }
+h1 { font-size: 2rem; color: var(--text-color); text-align: center; }
+    [data-bs-theme="dark"] h1 { color: #9ecbff; } /* override */  
+
 h2 { font-size: 1.4rem; margin-top: 1.2rem; }
-h3 { font-weight: normal; color: #555; }
+
+h3 { font-weight: normal; color: var(--text-color); text-align: center; }
+  
+[data-bs-theme="dark"] h3 {
+    color: #ddd;
+}
 
 /* Tables */
 table {
@@ -27,13 +47,22 @@ th, td {
 }
 
 
+/* Head de tabla */
 thead {
-    background-color: #f0f4f8;
+    background-color: #f0f4f8;   /* color claro por defecto */
     color: #003366;
 }
+[data-bs-theme="dark"] thead {
+    background-color: #1e1e1e;  /* oscuro */
+    color: #9ecbff;
+}
 
+/* Filas pares */
 tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: #f9f9f9;  /* gris claro en light mode */
+}
+[data-bs-theme="dark"] tbody tr:nth-child(even) {
+    background-color: #1a1a1a;  /* gris oscuro en dark mode */
 }
 
 /* Links */
@@ -65,6 +94,7 @@ nav.navbar {
     background-color: #f0f0f0;
     z-index: 1000;
     padding: 0.625rem 1.25rem; /* 10px 20px → relative */
+    background-color: var(--bg-color);
 }
 nav ul {
     display: flex;
@@ -78,9 +108,10 @@ nav a {
     color: #333;
     font-weight: bold;
     padding: 0.5rem 0.75rem;
+    color: var(--text-color);
 }
 nav a:hover {
-    color: #0077cc;
+    color: #66aaff;
 }
 
 /* Add margin to main so fixed nav doesn't cover content */
@@ -133,9 +164,15 @@ main {
     transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
+/* Light mode: colores originales */
 .skills-grid .skill-card:nth-child(1) { background-color: #ffe0b2; } /* programming */
 .skills-grid .skill-card:nth-child(2) { background-color: #c8e6c9; } /* tools */
 .skills-grid .skill-card:nth-child(3) { background-color: #bbdefb; } /* soft skills */
+
+/* Dark mode: overrides */
+[data-bs-theme="dark"] .skills-grid .skill-card:nth-child(1) { background-color: #664400; }
+[data-bs-theme="dark"] .skills-grid .skill-card:nth-child(2) { background-color: #335533; }
+[data-bs-theme="dark"] .skills-grid .skill-card:nth-child(3) { background-color: #223355; }
 
 /* header margin */
 header.header-grid {
@@ -151,6 +188,8 @@ footer {
     text-align: center;
     font-size: 0.9rem;
     color: #555;
+    color: var(--text-color);
+    background-color: var(--bg-color);
 }
 
 .social-icon {
