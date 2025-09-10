@@ -35,7 +35,7 @@
         </ul>
         <!-- Botón para cambiar tema -->
         <button id="themeToggle" class="btn btn-outline-dark">🌙 Dark Mode</button>
-      </nav>      
+    </nav>      
 
     <header class="header-grid">
         <h1 id="greeting"></h1>
@@ -57,31 +57,44 @@
         </section>
 
         <!-- Middle 3-column section -->
-        <section class="skills-grid">
+        <section class="skills-section">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2 class="m-0">Skills</h2>
+            <input id="skillSearch" type="search" class="form-control w-50" placeholder="Buscar habilidades o tecnologías..." aria-label="Buscar habilidades">
+            </div>
+        
+            <div id="skillsGrid" class="skills-grid">
             <div class="skill-card">
                 <h3>Programming Languages</h3>
                 <ul>
-                    <li>Python</li>
+                <li>Python</li>
                 </ul>
             </div>
+        
             <div class="skill-card">
                 <h3>Technologies/Tools</h3>
                 <ul>
-                    <li>Stagehand</li>
-                    <li>Firebase</li>
-                    <li>Arduino Uno & ESP32</li>
+                <li>Stagehand</li>
+                <li>Firebase</li>
+                <li>Arduino Uno & ESP32</li>
                 </ul>
             </div>
+        
             <div class="skill-card">
                 <h3>Soft Skills</h3>
                 <ul>
-                    <li>Problem-solving</li>
-                    <li>Leadership</li>
-                    <li>Time Management</li>
-                    <li>Independence</li>
+                <li>Problem-solving</li>
+                <li>Leadership</li>
+                <li>Time Management</li>
+                <li>Independence</li>
                 </ul>
             </div>
-        </section>
+            </div>
+        
+            <p id="skillsNoResults" class="mt-3" style="display:none; font-style:italic;">
+            No se encontraron habilidades que coincidan.
+            </p>
+        </section>  
 
         <!-- Bottom sections like Education, Experience, Contact can go below -->
         <!-- Education table -->
