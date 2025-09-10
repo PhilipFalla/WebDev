@@ -76,3 +76,17 @@ toggleBtnExp.addEventListener("click", () => {
     toggleBtnExp.textContent = "Show Experience";
   }
 });
+
+// Toggle Contact Info
+const toggleBtnContact = document.getElementById("toggleContact");
+const contactInfo = document.getElementById("contactInfo");
+
+toggleBtnContact.addEventListener("click", () => {
+  if (contactInfo.style.display === "none") {
+    contactInfo.style.display = "block";
+    toggleBtnContact.textContent = "Hide Contact Info";
+  } else {
+    contactInfo.style.display = "none";
+    toggleBtnContact.textContent = "Show Contact Info";
+  }
+});
