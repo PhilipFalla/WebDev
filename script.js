@@ -63,3 +63,16 @@ function setGreeting() {
   
 // Run greeting on page load
 document.addEventListener("DOMContentLoaded", setGreeting);  
+
+const toggleBtnExp = document.getElementById("toggleExperience");
+const expTable = document.getElementById("experienceTable");
+
+toggleBtnExp.addEventListener("click", () => {
+  if (expTable.style.display === "none") {
+    expTable.style.display = "table";
+    toggleBtnExp.textContent = "Hide Experience";
+  } else {
+    expTable.style.display = "none";
+    toggleBtnExp.textContent = "Show Experience";
+  }
+});
