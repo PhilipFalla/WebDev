@@ -60,7 +60,7 @@
         <section class="skills-section">
             <div class="d-flex justify-content-between align-items-center mb-3">
             <h2 class="m-0">Skills</h2>
-            <input id="skillSearch" type="search" class="form-control w-50" placeholder="Buscar habilidades o tecnologías..." aria-label="Buscar habilidades">
+            <input id="skillSearch" type="search" class="form-control w-50" placeholder="Search for Skills or Technologies..." aria-label="Search for Skills">
             </div>
         
             <div id="skillsGrid" class="skills-grid">
@@ -101,7 +101,11 @@
         <section id="education">
             <!-- Title -->
             <h2>Education</h2>
-            <table>
+            <button id="toggleEducation" class="btn btn-secondary mb-3">
+                Hide Education
+            </button>
+
+            <table id="educationTable">
                 <!-- Brief description as subtitle/caption -->
                 <caption style="caption-side: top; font-style: italic; padding-bottom: 8px;">
                     Overview of my academic background

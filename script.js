@@ -62,8 +62,9 @@ function setGreeting() {
 }
   
 // Run greeting on page load
-document.addEventListener("DOMContentLoaded", setGreeting);  
+document.addEventListener("DOMContentLoaded", setGreeting);
 
+// Toggle Experience table
 const toggleBtnExp = document.getElementById("toggleExperience");
 const expTable = document.getElementById("experienceTable");
 
@@ -93,47 +94,61 @@ toggleBtnContact.addEventListener("click", () => {
 
 // ---- Skill search (filter) ----
 document.addEventListener("DOMContentLoaded", () => {
-    const searchInput = document.getElementById("skillSearch");
-    const skillsGrid = document.getElementById("skillsGrid");
-    const skillCards = () => skillsGrid.querySelectorAll(".skill-card");
-    const noResults = document.getElementById("skillsNoResults");
+const searchInput = document.getElementById("skillSearch");
+const skillsGrid = document.getElementById("skillsGrid");
+const skillCards = () => skillsGrid.querySelectorAll(".skill-card");
+const noResults = document.getElementById("skillsNoResults");
   
-    // Debounce helper para no ejecutar el filtrado en cada pulsación rápidamente
-    function debounce(fn, wait = 250) {
-      let t;
-      return (...args) => {
-        clearTimeout(t);
-        t = setTimeout(() => fn.apply(this, args), wait);
-      };
+// Debounce helper para no ejecutar el filtrado en cada pulsación rápidamente
+function debounce(fn, wait = 250) {
+    let t;
+    return (...args) => {
+    clearTimeout(t);
+    t = setTimeout(() => fn.apply(this, args), wait);
+    };
+}
+  
+function filterSkills() {
+    const q = (searchInput.value || "").trim().toLowerCase();
+    let visibleCount = 0;
+
+    skillCards().forEach(card => {
+    // Texto del card: título + contenido (li)
+    const text = card.textContent.toLowerCase();
+
+    // Si el query aparece en el texto del card -> mostrar; si no -> ocultar
+    if (!q || text.includes(q)) {
+        // muestra como bloque (respeta diseño de grid)
+        card.style.display = "";
+        visibleCount += 1;
+    } else {
+        card.style.display = "none";
     }
+    });
+
+    // Mostrar u ocultar mensaje de "no results"
+    noResults.style.display = visibleCount === 0 ? "block" : "none";
+}
   
-    function filterSkills() {
-      const q = (searchInput.value || "").trim().toLowerCase();
-      let visibleCount = 0;
-  
-      skillCards().forEach(card => {
-        // Texto del card: título + contenido (li)
-        const text = card.textContent.toLowerCase();
-  
-        // Si el query aparece en el texto del card -> mostrar; si no -> ocultar
-        if (!q || text.includes(q)) {
-          // muestra como bloque (respeta diseño de grid)
-          card.style.display = "";
-          visibleCount += 1;
-        } else {
-          card.style.display = "none";
-        }
-      });
-  
-      // Mostrar u ocultar mensaje de "no results"
-      noResults.style.display = visibleCount === 0 ? "block" : "none";
-    }
-  
-    // Añadir listener con debounce
-    if (searchInput) {
-      searchInput.addEventListener("input", debounce(filterSkills, 150));
-    }
-  
-    // Ejecutar una vez al cargar para estado inicial (por ejemplo si el input tiene texto)
-    filterSkills();
-  });  
+// Añadir listener con debounce
+if (searchInput) {
+    searchInput.addEventListener("input", debounce(filterSkills, 150));
+}
+
+// Ejecutar una vez al cargar para estado inicial (por ejemplo si el input tiene texto)
+filterSkills();
+});
+
+// Toggle Education Table
+const toggleBtnEdu = document.getElementById("toggleEducation");
+const eduTable = document.getElementById("educationTable");
+
+toggleBtnEdu.addEventListener("click", () => {
+  if (eduTable.style.display === "none") {
+    eduTable.style.display = "table";
+    toggleBtnEdu.textContent = "Hide Education";
+  } else {
+    eduTable.style.display = "none";
+    toggleBtnEdu.textContent = "Show Education";
+  }
+});
