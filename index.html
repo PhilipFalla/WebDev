@@ -38,8 +38,8 @@
       </nav>      
 
     <header class="header-grid">
-        <h1>Philip Falla</h1>
-    </header>
+        <h1 id="greeting"></h1>
+    </header>      
 
     <main class="main-grid">
         <!-- Top 2-column section -->
@@ -185,58 +185,14 @@
         </button>        
     </footer>
 
-    <!-- Load html2canvas, jsPDF uses it -->
+    <!-- Load html2canvas -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
     <!-- Load jsPDF -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
-    <script>
-        document.getElementById("download").addEventListener("click", () => {
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF({
-                orientation: "portrait",
-                unit: "pt", // points
-                format: "a4"
-            });
-        
-            doc.html(document.body, {
-                callback: function (pdf) {
-                    pdf.save("My-CV.pdf");
-                },
-                x: 10,
-                y: 10,
-                html2canvas: {
-                    scale: 0.6 // smaller = more fits on the page
-                }
-            });
-        });
-    </script>
-    
-    <script>
-        const toggleBtn = document.getElementById("themeToggle");
-        const nav = document.getElementById("mainNav");
-        let darkMode = false;
-      
-        toggleBtn.addEventListener("click", () => {
-          darkMode = !darkMode;
-          if (darkMode) {
-            document.body.setAttribute("data-bs-theme", "dark");
-            nav.classList.remove("bg-light");
-            nav.classList.add("bg-dark");
-            toggleBtn.classList.remove("btn-outline-dark");
-            toggleBtn.classList.add("btn-outline-light");
-            toggleBtn.textContent = "☀️ Light Mode";
-          } else {
-            document.body.setAttribute("data-bs-theme", "light");
-            nav.classList.remove("bg-dark");
-            nav.classList.add("bg-light");
-            toggleBtn.classList.remove("btn-outline-light");
-            toggleBtn.classList.add("btn-outline-dark");
-            toggleBtn.textContent = "🌙 Dark Mode";
-          }
-        });
-      </script>      
+    <!-- Your custom script -->
+    <script src="script.js"></script>
 
 </body>
 </html>
