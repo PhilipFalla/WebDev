@@ -1,65 +1,68 @@
-/* Contenedor de la sección */
-.about-me-section {
-    display: grid;
-    grid-template-columns: 1fr 2fr; /* imagen + texto */
-    gap: 1.25rem;
-    align-items: start;
+/* About-Me Section */
+.about-skills-section {
     padding: 1rem 0;
 }
 
-/* Imagen de perfil */
-.about-me-section .profile-pic {
+/* Profile Picture */
+.about-skills-section .profile-pic {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.about-me-section .profile-pic img {
+.about-skills-section .profile-pic img {
     width: 100%;
     max-width: 250px;
     border-radius: 10%;
     border: 3px solid #ccc;
 }
 
-/* Texto de About Me */
-.about-me-section .about-me {
+/* About Me Text */
+.about-skills-section .about-me {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.about-me-section .about-me h2 {
+.about-skills-section .about-me h2 {
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
     color: var(--text-color);
 }
 
-.about-me-section .about-me p {
+.about-skills-section .about-me p {
     margin-bottom: 0.5rem;
     line-height: 1.5;
 }
 
-/* Dark mode overrides */
-[data-bs-theme="dark"] .about-me-section .about-me h2,
-[data-bs-theme="dark"] .about-me-section .about-me p {
+/* Dark Mode Overrides for About Me */
+[data-bs-theme="dark"] .about-skills-section .about-me h2,
+[data-bs-theme="dark"] .about-skills-section .about-me p {
     color: #ccc;
 }
 
-/* Responsive: tablets */
+/* Skills Cards (Bootstrap cards) Dark Mode */
+[data-bs-theme="dark"] .card.bg-warning-subtle { background-color: #664400 !important; }
+[data-bs-theme="dark"] .card.bg-success-subtle { background-color: #335533 !important; }
+[data-bs-theme="dark"] .card.bg-primary-subtle { background-color: #223355 !important; }
+
+[data-bs-theme="dark"] .card h3,
+[data-bs-theme="dark"] .card ul li {
+    color: #ddd;
+}
+
+/* Responsive Adjustments */
+
+/* Tablets ~1024px */
 @media (max-width: 1024px) {
-    .about-me-section {
-        grid-template-columns: 1fr 1fr;
+    .about-skills-section .profile-pic img {
+        max-width: 200px;
     }
 }
 
-/* Responsive: phones */
+/* Phones ~430px */
 @media (max-width: 430px) {
-    .about-me-section {
-        grid-template-columns: 1fr; /* stack imagen + texto */
-        gap: 0.5rem;
-    }
-
-    .about-me-section .profile-pic img {
-        max-width: 200px;
+    .about-skills-section .profile-pic img {
+        max-width: 150px;
     }
 }
