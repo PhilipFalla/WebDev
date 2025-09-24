@@ -1,0 +1,17 @@
+/* Footer */
+footer {
+    border-top: 1px solid #ccc;
+    margin-top: 1.25rem;
+    padding-top: 0.625rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+.social-icon {
+    width: 3.125rem;
+    height: 3.125rem;
+    object-fit: contain;
+    margin-right: 0.625rem;
+}
