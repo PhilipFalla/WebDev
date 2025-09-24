@@ -1,0 +1,59 @@
+.background-section {
+    width: 100%;
+    padding: 1.25rem 0;
+    display: block;
+    box-sizing: border-box;
+    gap: 2rem;
+}
+
+.background-subsection {
+    margin-bottom: 2rem; /* space between Education and Experience */
+}
+
+.background-subsection h2 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+/* Table styles (copied from main CSS) */
+.background-subsection table {
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.background-subsection th,
+.background-subsection td {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+.background-subsection thead {
+    background-color: #f0f4f8;
+    color: #003366;
+}
+
+[data-bs-theme="dark"] .background-subsection thead {
+    background-color: #1e1e1e;
+    color: #9ecbff;
+}
+
+.background-subsection tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+[data-bs-theme="dark"] .background-subsection tbody tr:nth-child(even) {
+    background-color: #1a1a1a;
+}
+
+.background-subsection a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.background-subsection a:hover {
+    text-decoration: underline;
+    color: #004080;
+}
