@@ -1,3 +1,4 @@
+/* Base navbar layout */
 nav.navbar {
   position: fixed;
   top: 0;
@@ -5,9 +6,12 @@ nav.navbar {
   width: 100%;
   z-index: 1000;
   padding: 0.625rem 1.25rem;
-  background-color: var(--bg-color);
+
+  background-color: var(--bg-color) !important; /* <-- this */
+  color: var(--text-color);
 }
 
+/* nav links */
 nav ul {
   display: flex;
   justify-content: space-around;
@@ -21,14 +25,16 @@ nav a {
   font-weight: bold;
   padding: 0.5rem 0.75rem;
   color: var(--text-color);
+  transition: color 0.2s ease;
 }
 
 nav a:hover {
   color: #66aaff;
 }
 
+/* header spacing so it’s not under navbar */
 header.header-grid {
-  margin-top: 4.375rem;
+  margin-top: 4.375rem; /* adjust to navbar height */
   padding: 1.25rem;
   text-align: center;
 }
@@ -38,13 +44,10 @@ h1 {
   color: var(--text-color);
 }
 
-[data-bs-theme="dark"] h1 {
-  color: #9ecbff;
-}
-
+/* Theme variables */
 [data-bs-theme="light"] {
   --text-color: #222;
-  --bg-color: #fff;
+  --bg-color: #f0f0f0;
 }
 
 [data-bs-theme="dark"] {

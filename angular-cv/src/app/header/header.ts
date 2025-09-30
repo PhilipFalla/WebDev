@@ -22,22 +22,19 @@ export class HeaderComponent implements OnInit {
 
   toggleTheme() {
     this.darkMode = !this.darkMode;
-    const body = document.body;
+  
+    document.body.setAttribute(
+      'data-bs-theme',
+      this.darkMode ? 'dark' : 'light'
+    );
+  
     const nav = document.getElementById('mainNav');
-
-    if (this.darkMode) {
-      body.setAttribute('data-bs-theme', 'dark');
-      nav?.classList.replace('bg-light', 'bg-dark');
-      this.btnClass = 'btn-outline-light';
-      this.themeText = 'Light Mode';
-      this.themeIcon = '☀️';
-    } else {
-      body.setAttribute('data-bs-theme', 'light');
-      nav?.classList.replace('bg-dark', 'bg-light');
-      this.btnClass = 'btn-outline-dark';
-      this.themeText = 'Dark Mode';
-      this.themeIcon = '🌙';
-    }
+    nav?.classList.toggle('bg-dark', this.darkMode);
+    nav?.classList.toggle('bg-light', !this.darkMode);
+  
+    this.btnClass = this.darkMode ? 'btn-outline-light' : 'btn-outline-dark';
+    this.themeText = this.darkMode ? 'Light Mode' : 'Dark Mode';
+    this.themeIcon = this.darkMode ? '☀️' : '🌙';
   }
 
   setGreeting() {

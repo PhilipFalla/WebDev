@@ -1,56 +1,63 @@
 <section class="about-skills-section container mt-4">
-    <div class="row align-items-start">
-      <!-- Profile -->
-      <div class="col-md-4 text-center">
-        <img src="/assets/images/philip.png" alt="A picture of me" class="img-fluid rounded-3 mb-3">
-      </div>
-  
-      <!-- About Me -->
-      <div class="col-md-8">
-        <h2>About Me</h2>
-        <p>I like problem-solving. Finding challenges or real-world problems and attempting to find and/or develop a solution that attacks these.</p>
-        <p>My hobbies include music (Guitar and Piano), video games, surfing, and wakeboarding.</p>
-      </div>
+  <!-- Top 2-column section -->
+  <section class="profile-about">
+    <div class="profile-pic">
+      <img 
+        src="assets/images/philip.png" 
+        alt="A picture of me" 
+        class="border border-10 border-dark">
     </div>
-  
-    <!-- Skills Cards -->
-    <div class="row mt-4 g-3">
-      <div class="col-md-4">
-        <div class="card h-100 text-center bg-warning-subtle">
-          <div class="card-body">
-            <h3 class="card-title">Programming Languages</h3>
-            <ul class="list-unstyled mb-0">
-              <li>Python</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-  
-      <div class="col-md-4">
-        <div class="card h-100 text-center bg-success-subtle">
-          <div class="card-body">
-            <h3 class="card-title">Technologies/Tools</h3>
-            <ul class="list-unstyled mb-0">
-              <li>Stagehand</li>
-              <li>Firebase</li>
-              <li>Arduino Uno & ESP32</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-  
-      <div class="col-md-4">
-        <div class="card h-100 text-center bg-primary-subtle">
-          <div class="card-body">
-            <h3 class="card-title">Soft Skills</h3>
-            <ul class="list-unstyled mb-0">
-              <li>Problem-solving</li>
-              <li>Leadership</li>
-              <li>Time Management</li>
-              <li>Independence</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+
+    <div class="about-me">
+      <h2>About Me</h2>
+      <p>
+        I like problem-solving. Finding challenges or real-world problems and
+        attempting to find and/or develop a solution that attacks these.
+      </p>
+      <p>
+        My hobbies include music (Guitar and Piano), video games, surfing,
+        and wakeboarding.
+      </p>
     </div>
+  </section>
+  
+  <!-- Skills Cards -->
+  <section class="skills-section">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="m-0">Skills</h2>
+    <input id="skillSearch" type="search" class="form-control w-50" placeholder="Search for Skills or Technologies..." aria-label="Search for Skills">
+    </div>
+
+    <div id="skillsGrid" class="skills-grid">
+    <div class="skill-card">
+        <h3>Programming Languages</h3>
+        <ul>
+        <li>Python</li>
+        </ul>
+    </div>
+
+    <div class="skill-card">
+        <h3>Technologies/Tools</h3>
+        <ul>
+        <li>Stagehand</li>
+        <li>Firebase</li>
+        <li>Arduino Uno & ESP32</li>
+        </ul>
+    </div>
+
+    <div class="skill-card">
+        <h3>Soft Skills</h3>
+        <ul>
+        <li>Problem-solving</li>
+        <li>Leadership</li>
+        <li>Time Management</li>
+        <li>Independence</li>
+        </ul>
+    </div>
+    </div>
+
+    <p id="skillsNoResults" class="mt-3" style="display:none; font-style:italic;">
+    No se encontraron habilidades que coincidan.
+    </p>
+  </section>
 </section>  

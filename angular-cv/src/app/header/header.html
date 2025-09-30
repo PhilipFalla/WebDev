@@ -1,4 +1,5 @@
-<nav class="navbar navbar-expand-lg bg-light px-3" id="mainNav">
+<body data-bs-theme="light">
+  <nav class="navbar navbar-expand-lg px-3 bg-light" id="mainNav">
     <a class="navbar-brand" href="#">Philip Falla</a>
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <li class="nav-item"><a class="nav-link" href="#about">About Me</a></li>
@@ -9,10 +10,10 @@
     </ul>
     <button (click)="toggleTheme()" class="btn" [ngClass]="btnClass">
       {{ themeIcon }} {{ themeText }}
-    </button>
-</nav>
+    </button>    
+  </nav>
 
-<header class="header-grid">
-<h1>{{ greeting }}</h1>
-</header>
-  
+  <header class="header-grid">
+    <h1>{{ greeting }}</h1>
+  </header>
+</body>

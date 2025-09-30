@@ -1,56 +1,3 @@
-/* About-Me Section */
-.about-skills-section {
-    padding: 1rem 0;
-}
-
-/* Profile Picture */
-.about-skills-section .profile-pic {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.about-skills-section .profile-pic img {
-    width: 100%;
-    max-width: 250px;
-    border-radius: 10%;
-    border: 3px solid #ccc;
-}
-
-/* About Me Text */
-.about-skills-section .about-me {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.about-skills-section .about-me h2 {
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
-    color: var(--text-color);
-}
-
-.about-skills-section .about-me p {
-    margin-bottom: 0.5rem;
-    line-height: 1.5;
-}
-
-/* Dark Mode Overrides for About Me */
-[data-bs-theme="dark"] .about-skills-section .about-me h2,
-[data-bs-theme="dark"] .about-skills-section .about-me p {
-    color: #ccc;
-}
-
-/* Skills Cards (Bootstrap cards) Dark Mode */
-[data-bs-theme="dark"] .card.bg-warning-subtle { background-color: #664400 !important; }
-[data-bs-theme="dark"] .card.bg-success-subtle { background-color: #335533 !important; }
-[data-bs-theme="dark"] .card.bg-primary-subtle { background-color: #223355 !important; }
-
-[data-bs-theme="dark"] .card h3,
-[data-bs-theme="dark"] .card ul li {
-    color: #ddd;
-}
-
 /* Responsive Adjustments */
 
 /* Tablets ~1024px */
@@ -66,3 +13,67 @@
         max-width: 150px;
     }
 }
+
+/* Middle 3-column section: skills cards */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+  
+  .skill-card {
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    background-color: #f9f9f9;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Light mode: colores originales */
+  .skills-grid .skill-card:nth-child(1) {
+    background-color: #ffe0b2; /* programming */
+  }
+  .skills-grid .skill-card:nth-child(2) {
+    background-color: #c8e6c9; /* tools */
+  }
+  .skills-grid .skill-card:nth-child(3) {
+    background-color: #bbdefb; /* soft skills */
+  }
+  
+  /* Dark mode: overrides */
+  [data-bs-theme="dark"] .skills-grid .skill-card:nth-child(1) {
+    background-color: #664400;
+  }
+  [data-bs-theme="dark"] .skills-grid .skill-card:nth-child(2) {
+    background-color: #335533;
+  }
+  [data-bs-theme="dark"] .skills-grid .skill-card:nth-child(3) {
+    background-color: #223355;
+  }  
+
+/* Top 2-column section: profile + about */
+.profile-about {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1.25rem;
+    align-items: start;
+  }
+  
+  /* Profile picture wrapper */
+  .profile-pic {
+    display: flex;
+    justify-content: center; /* horizontal centering */
+    align-items: center;     /* vertical centering */
+  }
+  
+  /* Actual image */
+  .profile-pic img {
+    width: 80%;       /* shrink the picture */
+    height: auto;
+    border-radius: 10%; /* rounded corners */
+  }  
