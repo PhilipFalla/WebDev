@@ -16,29 +16,10 @@
   </div>
 
   <div id="skillsGrid" class="skills-grid">
-    <div class="skill-card">
-      <h3>Programming Languages</h3>
+    <div class="skill-card" *ngFor="let category of skills">
+      <h3>{{ category.name }}</h3>
       <ul>
-        <li>Python</li>
-      </ul>
-    </div>
-
-    <div class="skill-card">
-      <h3>Technologies/Tools</h3>
-      <ul>
-        <li>Stagehand</li>
-        <li>Firebase</li>
-        <li>Arduino Uno & ESP32</li>
-      </ul>
-    </div>
-
-    <div class="skill-card">
-      <h3>Soft Skills</h3>
-      <ul>
-        <li>Problem-solving</li>
-        <li>Leadership</li>
-        <li>Time Management</li>
-        <li>Independence</li>
+        <li *ngFor="let item of category.items">{{ item }}</li>
       </ul>
     </div>
   </div>

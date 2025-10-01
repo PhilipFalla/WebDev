@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { DataService, SkillCategory } from '../data';
 
 @Component({
   selector: 'app-about-skills',
@@ -13,11 +14,13 @@ import { filter } from 'rxjs/operators';
 export class AboutSkillsComponent implements OnInit {
   currentSection: 'about' | 'skills' = 'about';
   showAllSections = true;
+  skills: SkillCategory[] = [];
 
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  constructor(private route: ActivatedRoute, private router: Router, private dataService: DataService) {}
 
   ngOnInit() {
     this.setSection();
+    this.skills = this.dataService.getSkills();
 
     // Listen to route changes to update section dynamically
     this.router.events

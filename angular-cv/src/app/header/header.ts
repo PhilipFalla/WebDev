@@ -18,6 +18,16 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.setGreeting();
+    // Ensure light mode on init if no theme is set
+    const existing = document.body.getAttribute('data-bs-theme');
+    if (!existing) {
+      document.body.setAttribute('data-bs-theme', 'light');
+      this.darkMode = false;
+      this.updateButtonState();
+    } else {
+      this.darkMode = existing === 'dark';
+      this.updateButtonState();
+    }
   }
 
   toggleTheme() {
@@ -27,7 +37,10 @@ export class HeaderComponent implements OnInit {
       'data-bs-theme',
       this.darkMode ? 'dark' : 'light'
     );
+    this.updateButtonState();
+  }
 
+  private updateButtonState() {
     this.btnClass = this.darkMode ? 'btn-outline-light' : 'btn-outline-dark';
     this.themeText = this.darkMode ? 'Light Mode' : 'Dark Mode';
     this.themeIcon = this.darkMode ? '☀️' : '🌙';

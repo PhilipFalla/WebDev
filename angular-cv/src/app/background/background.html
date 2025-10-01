@@ -52,25 +52,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>2025-Present</td>
-            <td>Lettuce Financial Labs</td>
-            <td>Automation Engineer</td>
-          </tr>
-          <tr>
-            <td>2023-2024</td>
-            <td>Krea Group</td>
-            <td>Accounts Receivable and Bookkeeping Assistant</td>
-          </tr>
-          <tr>
-            <td>2023</td>
-            <td>TEDxActonAcademyGuatemala</td>
-            <td>Head of Budgeting & Sponsorship Committee</td>
-          </tr>
-          <tr>
-            <td>2022 (80-hours)</td>
-            <td>Hot Sounds Store</td>
-            <td>Marketing & Sales Internship</td>
+          <tr *ngFor="let job of jobs">
+            <td>{{ job.year }}</td>
+            <td>{{ job.institution }}</td>
+            <td>{{ job.role }}</td>
           </tr>
         </tbody>
       </table>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { DataService, Job } from '../data';
 
 @Component({
   selector: 'app-background',
@@ -13,11 +14,13 @@ import { filter } from 'rxjs/operators';
 export class BackgroundComponent implements OnInit {
   currentSection: 'education' | 'experience' = 'education';
   showAllSections = true;
+  jobs: Job[] = [];
 
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  constructor(private route: ActivatedRoute, private router: Router, private dataService: DataService) {}
 
   ngOnInit() {
     this.setSection();
+    this.jobs = this.dataService.getJobs();
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(() => this.setSection());
