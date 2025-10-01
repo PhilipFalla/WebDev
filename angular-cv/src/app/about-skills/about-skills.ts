@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CapitalizePipe } from '../capitalize-pipe';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { DataService, SkillCategory } from '../data';
@@ -7,7 +8,7 @@ import { DataService, SkillCategory } from '../data';
 @Component({
   selector: 'app-about-skills',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, CapitalizePipe],
   templateUrl: './about-skills.html',
   styleUrls: ['./about-skills.css']
 })

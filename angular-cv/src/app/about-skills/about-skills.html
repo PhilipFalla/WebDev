@@ -17,9 +17,9 @@
 
   <div id="skillsGrid" class="skills-grid">
     <div class="skill-card" *ngFor="let category of skills">
-      <h3>{{ category.name }}</h3>
+      <h3>{{ category.name | capitalize }}</h3>
       <ul>
-        <li *ngFor="let item of category.items">{{ item }}</li>
+        <li *ngFor="let item of category.items">{{ item | capitalize }}</li>
       </ul>
     </div>
   </div>

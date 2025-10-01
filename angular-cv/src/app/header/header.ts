@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, PLATFORM_ID, inject } from '@angular/core';
+import { CommonModule, DOCUMENT, isPlatformBrowser } from '@angular/common';
+import { HourAmPmPipe } from '../hour-am-pm.pipe';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, HourAmPmPipe],
   templateUrl: './header.html',
   styleUrls: ['./header.css']
 })
@@ -15,28 +16,38 @@ export class HeaderComponent implements OnInit {
   btnClass = 'btn-outline-dark';
 
   greeting = '';
+  now: Date = new Date();
+
+  private readonly platformId = inject(PLATFORM_ID);
+  private readonly documentRef = inject(DOCUMENT);
+  private readonly isBrowser = isPlatformBrowser(this.platformId);
 
   ngOnInit() {
     this.setGreeting();
-    // Ensure light mode on init if no theme is set
-    const existing = document.body.getAttribute('data-bs-theme');
-    if (!existing) {
-      document.body.setAttribute('data-bs-theme', 'light');
-      this.darkMode = false;
-      this.updateButtonState();
-    } else {
-      this.darkMode = existing === 'dark';
-      this.updateButtonState();
+    // Capture current time for display
+    this.now = new Date();
+    // Ensure light mode on init if no theme is set (browser only)
+    if (this.isBrowser) {
+      const existing = this.documentRef.body.getAttribute('data-bs-theme');
+      if (!existing) {
+        this.documentRef.body.setAttribute('data-bs-theme', 'light');
+        this.darkMode = false;
+        this.updateButtonState();
+      } else {
+        this.darkMode = existing === 'dark';
+        this.updateButtonState();
+      }
     }
   }
 
   toggleTheme() {
     this.darkMode = !this.darkMode;
-
-    document.body.setAttribute(
-      'data-bs-theme',
-      this.darkMode ? 'dark' : 'light'
-    );
+    if (this.isBrowser) {
+      this.documentRef.body.setAttribute(
+        'data-bs-theme',
+        this.darkMode ? 'dark' : 'light'
+      );
+    }
     this.updateButtonState();
   }
 
@@ -57,6 +68,7 @@ export class HeaderComponent implements OnInit {
 
   scrollTo(fragment: string, event: Event) {
     event.preventDefault();
+    if (!this.isBrowser) return;
     const mapped: Record<string, string> = {
       about: 'header',
       skills: 'about',
@@ -66,13 +78,15 @@ export class HeaderComponent implements OnInit {
     };
 
     const targetId = mapped[fragment] || fragment;
-    const el = document.getElementById(targetId);
+    const el = this.documentRef.getElementById(targetId);
     if (!el) return;
 
     el.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
     try {
-      history.pushState(null, '', `#${fragment}`);
+      if (this.isBrowser) {
+        history.pushState(null, '', `#${fragment}`);
+      }
     } catch {}
   }
 }
