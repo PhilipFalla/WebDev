@@ -1,63 +1,40 @@
-<section class="about-skills-section container mt-4">
-  <!-- Top 2-column section -->
-  <section class="profile-about">
-    <div class="profile-pic">
-      <img 
-        src="assets/images/philip.png" 
-        alt="A picture of me" 
-        class="border border-10 border-dark">
-    </div>
+<section id="about" *ngIf="showAllSections || currentSection === 'about'" class="profile-about">
+  <div class="profile-pic">
+    <img src="assets/images/philip.png" alt="A picture of me" class="border border-10 border-dark">
+  </div>
+  <div class="about-me">
+    <h2>About Me</h2>
+    <p>I like problem-solving. Finding challenges or real-world problems and attempting to find and/or develop a solution that attacks these.</p>
+    <p>My hobbies include music (Guitar and Piano), video games, surfing, and wakeboarding.</p>
+  </div>
+</section>
 
-    <div class="about-me">
-      <h2>About Me</h2>
-      <p>
-        I like problem-solving. Finding challenges or real-world problems and
-        attempting to find and/or develop a solution that attacks these.
-      </p>
-      <p>
-        My hobbies include music (Guitar and Piano), video games, surfing,
-        and wakeboarding.
-      </p>
-    </div>
-  </section>
-  
-  <!-- Skills Cards -->
-  <section class="skills-section">
-    <div class="d-flex justify-content-between align-items-center mb-3">
-    <h2 class="m-0">Skills</h2>
-    <input id="skillSearch" type="search" class="form-control w-50" placeholder="Search for Skills or Technologies..." aria-label="Search for Skills">
-    </div>
-
-    <div id="skillsGrid" class="skills-grid">
+<section id="skills" *ngIf="showAllSections || currentSection === 'skills'" class="skills-section">
+  <div class="skills-grid">
     <div class="skill-card">
-        <h3>Programming Languages</h3>
-        <ul>
+      <h3>Programming Languages</h3>
+      <ul>
         <li>Python</li>
-        </ul>
+      </ul>
     </div>
 
     <div class="skill-card">
-        <h3>Technologies/Tools</h3>
-        <ul>
+      <h3>Technologies/Tools</h3>
+      <ul>
         <li>Stagehand</li>
         <li>Firebase</li>
         <li>Arduino Uno & ESP32</li>
-        </ul>
+      </ul>
     </div>
 
     <div class="skill-card">
-        <h3>Soft Skills</h3>
-        <ul>
+      <h3>Soft Skills</h3>
+      <ul>
         <li>Problem-solving</li>
         <li>Leadership</li>
         <li>Time Management</li>
         <li>Independence</li>
-        </ul>
+      </ul>
     </div>
-    </div>
-
-    <p id="skillsNoResults" class="mt-3" style="display:none; font-style:italic;">
-    No se encontraron habilidades que coincidan.
-    </p>
-  </section>
-</section>  
+  </div>
+</section>

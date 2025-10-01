@@ -1,3 +1,4 @@
+// app.ts
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
@@ -19,7 +20,6 @@ import { FooterComponent } from './footer/footer';
   templateUrl: './app.html',
   styleUrls: ['./app.css']
 })
-
 export class App {
   title = 'angular-cv';
 }
