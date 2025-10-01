@@ -26,12 +26,11 @@ export const routes: Routes = [
     },
     {
       path: 'background',
-      component: BackgroundComponent, // parent container
-    //   children: [
-    //     { path: 'education', component: BackgroundComponent, data: { section: 'education' } },
-    //     { path: 'experience', component: BackgroundComponent, data: { section: 'experience' } },
-    //     { path: '', redirectTo: 'education', pathMatch: 'full' } // default child
-    //   ]
+      children: [
+        { path: 'education', component: BackgroundComponent, data: { section: 'education' } },
+        { path: 'experience', component: BackgroundComponent, data: { section: 'experience' } },
+        { path: '', redirectTo: 'education', pathMatch: 'full' }
+      ]
     },
     { path: '**', redirectTo: '' }
   ];  

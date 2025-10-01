@@ -1,7 +1,7 @@
 <section class="background-section">
 
     <!-- Education -->
-    <div class="background-subsection" id="education">
+    <div class="background-subsection" id="education" *ngIf="showAllSections || currentSection === 'education'">
       <h2>Education</h2>
       <button id="toggleEducation" class="btn btn-secondary mb-3">
         Hide Education
@@ -34,7 +34,7 @@
     </div>
   
     <!-- Experience -->
-    <div class="background-subsection" id="experience">
+    <div class="background-subsection" id="experience" *ngIf="showAllSections || currentSection === 'experience'">
       <h2>Experience</h2>
       <button id="toggleExperience" class="btn btn-secondary mb-3">
         Hide Experience
