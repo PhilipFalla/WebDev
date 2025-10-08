@@ -1,0 +1,37 @@
+<section id="projects" class="projects-wrapper" *ngIf="!loading && !error">
+  <h2 class="mb-3">Selected Projects</h2>
+
+  <div class="carousel" *ngIf="filteredRepos.length">
+    <button class="nav prev" (click)="currentIndex = (currentIndex - 1 + filteredRepos.length) % filteredRepos.length" aria-label="Previous">
+      ‹
+    </button>
+
+    <div class="slides">
+      <div class="slide" *ngFor="let repo of filteredRepos; let i = index" [class.active]="i === currentIndex">
+        <div class="slide-grid">
+          <div class="left">
+            <h3 class="title">{{ repo.name }}</h3>
+            <p class="stars">⭐ {{ repo.stargazers_count }} stars</p>
+            <a class="link" [href]="repo.html_url" target="_blank" rel="noopener">Open Repository</a>
+          </div>
+          <div class="right">
+            <p class="description">{{ repo.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="nav next" (click)="currentIndex = (currentIndex + 1) % filteredRepos.length" aria-label="Next">
+      ›
+    </button>
+  </div>
+
+  <div class="dots" *ngIf="filteredRepos.length > 1">
+    <button *ngFor="let _ of filteredRepos; let i = index" [class.active]="i === currentIndex" (click)="currentIndex = i" aria-label="Go to slide {{ i + 1 }}"></button>
+  </div>
+</section>
+
+<div *ngIf="loading" class="state">Loading projects…</div>
+<div *ngIf="error" class="state error">{{ error }}</div>
+
+

@@ -74,7 +74,8 @@ export class HeaderComponent implements OnInit {
       skills: 'about',
       education: 'skills',
       experience: 'education',
-      contact: 'experience'
+      contact: 'experience',
+      projects: 'projects'
     };
 
     const targetId = mapped[fragment] || fragment;

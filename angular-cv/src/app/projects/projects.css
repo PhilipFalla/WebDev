@@ -1,0 +1,27 @@
+/* Minimal carousel styling */
+.projects-wrapper { padding: 1rem; }
+.carousel { position: relative; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: .5rem; }
+.slides { position: relative; overflow: hidden; height: 160px; }
+.slide { position: absolute; inset: 0; opacity: 0; transform: translateX(10%); transition: opacity .3s ease, transform .3s ease; display: grid; align-items: center; padding: 1rem; border-radius: .5rem; border: 1px solid rgba(0,0,0,.1); }
+.slide.active { opacity: 1; transform: translateX(0); }
+.slide-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; align-items: start; }
+.left { display: grid; gap: .5rem; align-content: start; }
+.right { display: grid; align-content: start; }
+.description { margin: 0; opacity: .9; }
+.nav { background: transparent; border: none; font-size: 2rem; line-height: 1; cursor: pointer; padding: .25rem .5rem; }
+.dots { display: flex; justify-content: center; gap: .25rem; margin-top: .5rem; }
+.dots button { width: 8px; height: 8px; border-radius: 999px; border: none; background: rgba(0,0,0,.2); cursor: pointer; }
+.dots button.active { background: rgba(0,0,0,.6); }
+.title { margin: 0 0 .25rem; }
+.stars { margin: 0 0 .5rem; opacity: .8; }
+.link { text-decoration: none; }
+.state { padding: 1rem; }
+.state.error { color: #b00020; }
+
+/* Dark mode styles when body has data-bs-theme='dark' */
+:host-context(body[data-bs-theme='dark']) .slide {
+  border-color: rgba(255,255,255,.2);
+}
+:host-context(body[data-bs-theme='dark']) .dots button { background: rgba(255,255,255,.35); }
+:host-context(body[data-bs-theme='dark']) .dots button.active { background: rgba(255,255,255,.85); }
+

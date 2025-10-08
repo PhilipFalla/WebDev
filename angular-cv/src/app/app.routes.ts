@@ -2,14 +2,16 @@ import { Routes } from '@angular/router';
 import { AboutSkillsComponent } from './about-skills/about-skills';
 import { BackgroundComponent } from './background/background';
 import { Component } from '@angular/core';
+import { ProjectsComponent } from './projects/projects';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [AboutSkillsComponent, BackgroundComponent],
+  imports: [AboutSkillsComponent, BackgroundComponent, ProjectsComponent],
   template: `
     <app-about-skills></app-about-skills>
     <app-background></app-background>
+    <app-projects></app-projects>
   `
 })
 export class HomeComponent {}
