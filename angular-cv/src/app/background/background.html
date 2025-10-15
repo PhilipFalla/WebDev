@@ -1,64 +1,64 @@
 <section class="background-section">
 
-    <!-- Education -->
-    <div class="background-subsection" id="education" *ngIf="showAllSections || currentSection === 'education'">
-      <h2>Education</h2>
-      <button id="toggleEducation" class="btn btn-secondary mb-3">
-        Hide Education
-      </button>
+  <!-- Education -->
+  <div class="background-subsection" id="education" *ngIf="showAllSections || currentSection === 'education'">
+    <h2>Education</h2>
+    <button id="toggleEducation" class="btn btn-secondary mb-3">
+      Hide Education
+    </button>
+
+    <table>
+      <caption style="caption-side: top; font-style: italic; padding-bottom: 8px;">
+        Overview of my academic background
+      </caption>
+      <thead>
+        <tr>
+          <th>Year</th>
+          <th>Institution</th>
+          <th>Title Obtained</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2024-2027</td>
+          <td>Universidad Francisco Marroquín</td>
+          <td>Bachelor’s Degree in Computer Science Engineering</td>
+        </tr>
+        <tr>
+          <td>2023</td>
+          <td>Acton Academy Guatemala</td>
+          <td>High School Diploma</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Experience -->
+  <div class="background-subsection" id="experience" *ngIf="showAllSections || currentSection === 'experience'">
+    <h2>Experience</h2>
+    <button id="toggleExperience" class="btn btn-secondary mb-3">
+      Hide Experience
+    </button>
   
-      <table>
-        <caption style="caption-side: top; font-style: italic; padding-bottom: 8px;">
-          Overview of my academic background
-        </caption>
-        <thead>
-          <tr>
-            <th>Year</th>
-            <th>Institution</th>
-            <th>Title Obtained</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>2024-2027</td>
-            <td>Universidad Francisco Marroquín</td>
-            <td>Bachelor’s Degree in Computer Science Engineering</td>
-          </tr>
-          <tr>
-            <td>2023</td>
-            <td>Acton Academy Guatemala</td>
-            <td>High School Diploma</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  
-    <!-- Experience -->
-    <div class="background-subsection" id="experience" *ngIf="showAllSections || currentSection === 'experience'">
-      <h2>Experience</h2>
-      <button id="toggleExperience" class="btn btn-secondary mb-3">
-        Hide Experience
-      </button>
-  
-      <table>
-        <caption style="caption-side: top; font-style: italic; padding-bottom: 8px;">
-          Overview of my experience
-        </caption>
-        <thead>
-          <tr>
-            <th>Year</th>
-            <th>Institution</th>
-            <th>Role</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let job of jobs">
-            <td>{{ job.year }}</td>
-            <td>{{ job.institution }}</td>
-            <td>{{ job.role }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  
-</section>  
+    <table>
+      <caption style="caption-side: top; font-style: italic; padding-bottom: 8px;">
+        Overview of my experience
+      </caption>
+      <thead>
+        <tr>
+          <th>Year</th>
+          <th>Institution</th>
+          <th>Role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let exp of experiences">
+          <td>{{ exp.startDate }} - {{ exp.endDate || 'Present' }}</td>
+          <td>{{ exp.company }}</td>
+          <td>{{ exp.role }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>    
+
+</section>
