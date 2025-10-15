@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { DataService, Job } from '../data';
-import { ExperiencesService, Experience } from '../services/experiences.service';
+import { ExperiencesService, Experience } from '../experience-service';
 
 @Component({
   selector: 'app-background',
