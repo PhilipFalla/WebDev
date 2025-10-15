@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { DataService, Job } from '../data';
+import { ExperiencesService, Experience } from '../services/experiences.service';
 
 @Component({
   selector: 'app-background',
@@ -14,13 +15,25 @@ import { DataService, Job } from '../data';
 export class BackgroundComponent implements OnInit {
   currentSection: 'education' | 'experience' = 'education';
   showAllSections = true;
-  jobs: Job[] = [];
+  
+  // replace jobs with experiences array
+  experiences: Experience[] = [];
 
-  constructor(private route: ActivatedRoute, private router: Router, private dataService: DataService) {}
+  constructor(
+    private route: ActivatedRoute, 
+    private router: Router, 
+    private dataService: DataService,
+    private expService: ExperiencesService
+  ) {}
 
   ngOnInit() {
     this.setSection();
-    this.jobs = this.dataService.getJobs();
+
+    // fetch experiences dynamically from API
+    this.expService.getExperiences().subscribe(data => {
+      this.experiences = data;
+    });
+
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(() => this.setSection());
