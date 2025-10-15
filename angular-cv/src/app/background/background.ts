@@ -13,8 +13,8 @@ import { ExperiencesService, Experience } from '../experience-service';
   styleUrls: ['./background.css']
 })
 export class BackgroundComponent implements OnInit {
-  currentSection: 'education' | 'experience' = 'education';
-  showAllSections = true;
+  showEducation = true;
+  showExperience = true;
   
   // replace jobs with experiences array
   experiences: Experience[] = [];
@@ -39,13 +39,17 @@ export class BackgroundComponent implements OnInit {
       .subscribe(() => this.setSection());
   }
 
+  toggleEducation() {
+    this.showEducation = !this.showEducation;
+  }
+
+  toggleExperience() {
+    this.showExperience = !this.showExperience;
+  }
+
   private setSection() {
     const section = this.route.snapshot.data['section'];
-    if (section === 'education' || section === 'experience') {
-      this.currentSection = section;
-      this.showAllSections = false;
-    } else {
-      this.showAllSections = true;
-    }
+    this.showEducation = section !== 'experience';
+    this.showExperience = section !== 'education';
   }
 }

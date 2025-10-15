@@ -1,4 +1,4 @@
-<section id="projects" class="projects-wrapper" *ngIf="!loading && !error">
+<section id="projects" class="projects-wrapper">
   <h2 class="mb-3">Selected Projects</h2>
 
   <div class="carousel" *ngIf="filteredRepos.length">
@@ -30,8 +30,5 @@
     <button *ngFor="let _ of filteredRepos; let i = index" [class.active]="i === currentIndex" (click)="currentIndex = i" aria-label="Go to slide {{ i + 1 }}"></button>
   </div>
 </section>
-
-<div *ngIf="loading" class="state">Loading projects…</div>
-<div *ngIf="error" class="state error">{{ error }}</div>
 
 

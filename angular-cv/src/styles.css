@@ -22,15 +22,12 @@ body {
 
 /* Tables */
 thead { background-color: #f0f4f8; color: #003366; }
-[data-bs-theme="dark"] thead { background-color: #1e1e1e; color: #9ecbff; }
-tbody tr:nth-child(even) { background-color: #f9f9f9; }
-[data-bs-theme="dark"] tbody tr:nth-child(even) { background-color: #1a1a1a; }
 
 /* Ensure Background tables zebra striping wins over any generic rules */
-.background-subsection tbody tr:nth-child(odd) { background-color: var(--bg-color); }
+/* .background-subsection tbody tr:nth-child(odd) { background-color: var(--bg-color); }
 .background-subsection tbody tr:nth-child(even) { background-color: #f9f9f9; }
 [data-bs-theme="dark"] .background-subsection tbody tr:nth-child(odd) { background-color: #121212; }
-[data-bs-theme="dark"] .background-subsection tbody tr:nth-child(even) { background-color: #1a1a1a; }
+[data-bs-theme="dark"] .background-subsection tbody tr:nth-child(even) { background-color: #1a1a1a; } */
 
 /* Ensure Skills cards dark colors always apply */
 [data-bs-theme="dark"] .skills-grid .skill-card:nth-child(1) { background-color: #664400; }

@@ -1,13 +1,13 @@
 <section class="background-section">
 
   <!-- Education -->
-  <div class="background-subsection" id="education" *ngIf="showAllSections || currentSection === 'education'">
+  <div class="background-subsection">
     <h2>Education</h2>
-    <button id="toggleEducation" class="btn btn-secondary mb-3">
-      Hide Education
+    <button (click)="toggleEducation()" id="toggleEducation" class="btn btn-secondary mb-3">
+      {{ showEducation ? 'Hide' : 'Show' }} Education
     </button>
 
-    <table>
+    <table *ngIf="showEducation">
       <caption style="caption-side: top; font-style: italic; padding-bottom: 8px;">
         Overview of my academic background
       </caption>
@@ -34,13 +34,13 @@
   </div>
 
   <!-- Experience -->
-  <div class="background-subsection" id="experience" *ngIf="showAllSections || currentSection === 'experience'">
+  <div class="background-subsection">
     <h2>Experience</h2>
-    <button id="toggleExperience" class="btn btn-secondary mb-3">
-      Hide Experience
+    <button (click)="toggleExperience()" id="toggleExperience" class="btn btn-secondary mb-3">
+      {{ showExperience ? 'Hide' : 'Show' }} Experience
     </button>
   
-    <table>
+    <table *ngIf="showExperience">
       <caption style="caption-side: top; font-style: italic; padding-bottom: 8px;">
         Overview of my experience
       </caption>
