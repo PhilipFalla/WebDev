@@ -34,4 +34,9 @@ thead { background-color: #f0f4f8; color: #003366; }
 [data-bs-theme="dark"] .skills-grid .skill-card:nth-child(2) { background-color: #335533; }
 [data-bs-theme="dark"] .skills-grid .skill-card:nth-child(3) { background-color: #223355; }
 [data-bs-theme="dark"] .skills-grid .skill-card h3,
-[data-bs-theme="dark"] .skills-grid .skill-card li { color: #f5f5f5; }
+[data-bs-theme="dark"] .skills-grid .skill-card li { color: #222; }
+
+.background-subsection tbody tr:nth-child(odd) { background-color: var(--bg-color); }
+.background-subsection tbody tr:nth-child(even) { background-color: #f9f9f9; }
+[data-bs-theme="dark"] .background-subsection tbody tr:nth-child(odd) { background-color: #121212; }
+[data-bs-theme="dark"] .background-subsection tbody tr:nth-child(even) { background-color: #1a1a1a; }
