@@ -6,6 +6,7 @@ import { HeaderComponent } from './header/header';
 import { AboutSkillsComponent } from './about-skills/about-skills';
 import { BackgroundComponent } from './background/background';
 import { FooterComponent } from './footer/footer';
+import { RandomCard } from './random-card/random-card';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,8 @@ import { FooterComponent } from './footer/footer';
     HeaderComponent,
     AboutSkillsComponent,
     BackgroundComponent,
-    FooterComponent
+    FooterComponent,
+    RandomCard
   ],
   templateUrl: './app.html',
   styleUrls: ['./app.css']

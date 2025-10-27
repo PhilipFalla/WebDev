@@ -1,0 +1,8 @@
+<div class="card-container">
+    <button (click)="draw()">Draw Random Card</button>
+  
+    <div *ngIf="currentCard">
+      <img [src]="currentCard.image" alt="playing card" />
+      <p>{{ currentCard.value }} of {{ currentCard.suit }}</p>
+    </div>
+</div>  
